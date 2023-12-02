@@ -5,6 +5,10 @@ namespace Doctor\Languages;
 use Exception;
 use LanguageInterface;
 
+if (!defined("ABSPATH")) {
+    exit;
+}
+
 class WPML implements LanguageInterface
 {
     public function getLanguages(): array

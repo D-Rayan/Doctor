@@ -4,6 +4,9 @@ namespace Doctor\Languages;
 
 use LanguageInterface;
 
+if (!defined("ABSPATH")) {
+    exit;
+}
 class Polylang implements LanguageInterface
 {
     public function getLanguages(): array

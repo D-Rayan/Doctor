@@ -5,6 +5,9 @@ namespace Doctor\Languages;
 use Exception;
 use LanguageInterface;
 
+if (!defined("ABSPATH")) {
+    exit;
+}
 class MultilingualPress implements LanguageInterface
 {
     public function getLanguages(): array

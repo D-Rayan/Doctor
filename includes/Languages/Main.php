@@ -4,6 +4,9 @@ namespace Doctor\Languages;
 
 use LanguageInterface;
 
+if (!defined("ABSPATH")) {
+    exit;
+}
 class Main
 {
 
