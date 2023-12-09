@@ -19,6 +19,9 @@ class Client
         $response = $this->client->post("/login", [
             "token" => $token,
         ]);
+        $this->client->setAuthorization($token);
+
+        return $response["success"];
     }
 
     public function startTranslation(array $dataToTranslate, string $codeFrom, string $codeTo): array {
@@ -36,7 +39,7 @@ class Client
             "success" => true,
             "error" => null,
             "data" => [
-                "tokenId" => "",
+                "tokenId" => $tokenId,
                 "status" => "pending|done|error"
             ]
         ];
@@ -47,8 +50,13 @@ class Client
             "success" => true,
             "error" => null,
             "data" => [
-                "tokenId" => "",
-                "translations" => []
+                "tokenId" => $tokenId,
+                "translations" => [
+                    "title" => "Title",
+                    "content" => "Content",
+                    "excerpt" => "Excerpt",
+                    "slug" => "slug",
+                ]
             ]
         ];
     }

@@ -2,6 +2,8 @@
 
 namespace Doctor;
 
+use Doctor\Front\Components\Alert;
+
 if (!defined("ABSPATH")) {
     exit;
 }
@@ -10,16 +12,7 @@ class Settings
 {
     public function checkRequirements()
     {
-        $result = $this->checkPhp() && $this->checkPlugins();
-
-        if (!$result) {
-            deactivate_plugins( plugin_basename( __FILE__ ) );
-            if ( isset( $_GET['activate'] ) ) {
-                unset( $_GET['activate'] );
-            }
-        }
-
-        return $result;
+        return $this->checkPhp(true) && $this->checkPlugins(true);
     }
 
     private function checkPhp($printNotice = false)
@@ -34,8 +27,7 @@ class Settings
     }
 
     public function noticePhp() {
-        // @TODO : Print alert message to explain php need to be higher version
-        echo "noticePhp";
+        Alert::render("PHP version is too low", "Doctor required at least PHP " . DOCTOR_PHP_REQUIREMENT, "error");
     }
 
     private function checkPlugins($printNotice = false)
@@ -69,7 +61,7 @@ class Settings
             foreach ($pluginsListsMissing as $listMissing) {
                 $notice = "Doctor required at least one of the following plugins " . join(", ", $listMissing);
                 add_action( 'admin_notices', function () use ($notice) {
-                    echo $notice;
+                    Alert::render("Missings required plugins", $notice, "error");
                 });
             }
         }
