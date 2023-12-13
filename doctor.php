@@ -21,9 +21,9 @@ define("DOCTOR_SLUG", "doctor-otter");
 define("DOCTOR_TEXT_DOMAIN", "doctor-otter");
 define("DOCTOR_ABSOLUTE_PATH", __DIR__);
 define("DOCTOR_RELATIVE_PATH", plugin_dir_url(__FILE__));
-define("DOCTOR_VERSION", "0.0.2");
+define("DOCTOR_VERSION", "0.0.4");
 
-require_once DOCTOR_ABSOLUTE_PATH . "/includes/Settings.php";
+require_once DOCTOR_ABSOLUTE_PATH . "/includes/autoload.php";
 class Doctor {
 
     private $settings;

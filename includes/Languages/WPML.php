@@ -2,9 +2,6 @@
 
 namespace Doctor\Languages;
 
-use Exception;
-use LanguageInterface;
-
 if (!defined("ABSPATH")) {
     exit;
 }
@@ -31,4 +28,18 @@ class WPML implements LanguageInterface
         // TODO: Implement getAllTranslationsPost() method.
     }
 
+    public function saveAllTranslationsPost(array $translationsMap)
+    {
+        // TODO: Implement saveAllTranslationsPost() method.
+    }
+
+    function getTranslationCategories(array $categories, string $codeLanguage): array
+    {
+        // TODO: Implement getTranslationCategories() method.
+    }
+
+    public function getCurrentLanguage(): string
+    {
+        // TODO: Implement getCurrentLanguage() method.
+    }
 }

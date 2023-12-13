@@ -1,10 +1,20 @@
 <?php
 
+namespace Doctor\Languages;
+
+use Exception;
+
 if (!defined("ABSPATH")) {
     exit;
 }
 interface LanguageInterface
 {
+    /**
+     * @return string
+     * @throws Exception
+     */
+    public function getCurrentLanguage(): string;
+
     /**
      * @return array[]
      * @throws Exception

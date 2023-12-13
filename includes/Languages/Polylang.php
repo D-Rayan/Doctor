@@ -2,8 +2,6 @@
 
 namespace Doctor\Languages;
 
-use LanguageInterface;
-
 if (!defined("ABSPATH")) {
     exit;
 }
@@ -95,5 +93,14 @@ class Polylang implements LanguageInterface
         }
 
         return $results;
+    }
+
+    public function getCurrentLanguage(): string
+    {
+        if (!function_exists("pll_current_language")) {
+            throw new \Exception("pll_current_language not existing.");
+        }
+
+        return pll_current_language("slug");
     }
 }

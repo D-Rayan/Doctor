@@ -1,6 +1,7 @@
 <?php
 
 include __DIR__ . "/Alert/Alert.php";
+include __DIR__ . "/Modal/Modal.php";
 
 /*
  *

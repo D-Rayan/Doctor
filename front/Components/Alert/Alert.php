@@ -9,11 +9,11 @@ class Alert {
     }
 
     public function enqueueScripts() {
-        wp_enqueue_script("doctor-alert", $this->path . "Alert.js", [], DOCTOR_VERSION, true);
+        wp_enqueue_script(DOCTOR_SLUG . "-". get_class(), $this->path . "Alert.js", [], DOCTOR_VERSION, true);
     }
 
     public function enqueueStyles() {
-        wp_enqueue_style("doctor-alert", $this->path . "Alert.css", [], DOCTOR_VERSION);
+        wp_enqueue_style(DOCTOR_SLUG . "-". get_class(), $this->path . "Alert.css", [], DOCTOR_VERSION);
     }
 
     public function loadAssetsAdmin() {

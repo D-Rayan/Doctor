@@ -2,14 +2,11 @@
 
 namespace Doctor\Languages;
 
-use LanguageInterface;
-
 if (!defined("ABSPATH")) {
     exit;
 }
-class Main
+class LanguageManager
 {
-
     /**
      * @var LanguageInterface $manager
      */
@@ -34,7 +31,7 @@ class Main
         }
     }
 
-    public function getLanguageManager() {
+    public function getLanguageManager(): LanguageInterface {
         return $this->manager;
     }
 }
